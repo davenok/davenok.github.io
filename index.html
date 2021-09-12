@@ -1,7 +1,189 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:800,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ad9cb0368b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="./images/favicon.ico">
+    <title>Parth Garg</title>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div>
+        <div class="watermark">PARTH</div>
+        <div class="watermark">PARTH</div>
+        <div class="watermark">PARTH</div>
+
+        <div id="header-name-ldm">
+            <h1 id="name">Parth Garg</h1>
+            <span id="switch-ldm-logo">
+                <div id="switch-container">
+                    <img src="images/moon.svg" alt="">
+                </div>
+            </span>
+        </div>
+
+        <p id="slogan">Software Developer</p>
+
+        <div id="go-back-button"> <i class="fas fa-chevron-left"></i> Menu</div>
+
+        <section id="about-me-intro-section" class="section">
+            <p>
+              Competitive Coder and Web Developer from India.
+              I have a passion for problem solving.
+              I have experience with various Data Structures and Algorithms.
+              I am currently available to hire.
+            <br>
+            </p>
+            <a href="mailto:parthgarg2013@gmail.com"> Get in touch</a>
+        </section>
+        <!-- menu -->
+        <header id="menu">
+            <p id="about-me"> <a href="">About</a> </p>
+            <p id="skills"> <a href="">Skills</a> </p>
+            <p id="projects"> <a href="">Projects</a> </p>
+            <p id="links"> <a href="">Contact</a> </p>
+        </header>
+    </div>
+
+    <main>
+        <!-- About -->
+        <section id="about-me-section" class="section">
+			<h2>About</h2>
+			<p>Competitive Coder and Web Developer from India.
+                I have a passion for problem solving.
+                I have experience with various Data Structures and Algorithms .
+                I am currently available to hire.<br>
+      </p>
+
+      <h2>Coding Profiles</h2>
+      <p>
+        <a href="https://www.hackerrank.com/whoparthgarg">Hackerrank</a> &nbsp &nbsp
+        <a href="https://www.codechef.com/users/whoparthgarg">Codechef</a> &nbsp &nbsp
+        <a href="https://leetcode.com/whoparthgarg/">Leetcode</a>
+      </p>
+      <br><br>
+			<a href="mailto:parthgarg2013@gmail.com">Hire me</a>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills-section" class="section">
+            <h2>Skills</h2>
+            <article>
+                <section>
+                    <h4>Programmings languages<img class="section-logos" src="./images/programming.svg"></h4>
+                    <ul>
+                        <li skill-description="Java"><object type="image/svg+xml" data="images/cpp.svg"></object>C++</li>
+                        <li skill-description="Java"><object type="image/svg+xml" data="images/python.svg"></object>Python</li>
+                        <li skill-description="Javascript"><object type="image/svg+xml" data="images/javascript.svg"></object>JavaScript</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Web Frontend<img class="section-logos" src="./images/frontend.svg"></h4>
+                    <ul>
+                        <li skill-description="HTML 5"><object type="image/svg+xml" data="images/html5.svg" class="svg-logos"></object>HTML</li>
+                        <li skill-description="CSS"><object type="image/svg+xml" data="images/css3.svg"></object>CSS</li>
+                        <li skill-description="Bootstrap"><object type="image/svg+xml" data="images/bootstrap.svg"></object>Bootstrap</li>
+                        <li skill-description="JQuery"><object type="image/svg+xml" data="images/jquery.svg"></object>Jquery</li>
+                        <li skill-description="Sass"><object type="image/svg+xml" data="images/sass.svg"></object>Sass</li>
+                        <li skill-description="Sass"><object type="image/svg+xml" data="images/react.svg"></object>React</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Web Backend <img class="section-logos" src="./images/backend.svg"></h4>
+                    <ul>
+                        <li skill-description="Node"> <li skill-description="Sass"><object type="image/svg+xml" data="images/node-dot-js.svg"></object>Node</li>
+                    </ul>
+
+                </section>
+
+                <section>
+                    <h4>Other tools <img class="section-logos" src="./images/tools.svg"></h4>
+                    <ul>
+                        <li skill-description="Git"><object type="image/svg+xml" data="images/git.svg"></object>Git</li>
+                        <li skill-description="Github"><object type="image/svg+xml" data="images/github.svg"></object>Github</li>
+                        <li skill-description="Visual Studio Code"><object type="image/svg+xml" data="images/visualstudiocode.svg"></object>VScode</li>
+                        <li skill-description="Terminal"><object type="image/svg+xml" data="images/gnubash.svg"></object>Unix Shells (Bash/zsh)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Human languages <img class="section-logos" src="./images/languages.svg"></h4>
+                    <ul>
+                        <li>English</li>
+                        <!-- <li>French</li> -->
+                        <li>Hindi</li>
+                    </ul>
+                </section>
+            </article>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects-section" class="section">
+        <!-- will add tags to each project-->
+        <div id="projects-wrapper">
+        <div>
+            <div>
+            <h3>
+                <a href="https://twitter.com/CoderRetweet" target="_blank">Amanda</a>
+                <br>
+                <em> - Twitter Bot</em>
+            </h3>
+
+            <div class="tags">
+                <span>Python</span>
+                <span>Tweepy API</span>
+            </div>
+            </div>
+            <img src="images/amanda.png" alt="">
+
+        </div>
+        <div>
+            <div>
+            <h3> <a href="https://github.com/whoparthgarg/Data-Structures-and-Algorithms" target="_blank">Data Structures and Algorithms</a>
+                <br>
+                <em>- DSA Bootcamp</em>
+            </h3>
+
+            <div class="tags">
+                <span>C++</span>
+                <span>Github</span>
+                <span>FAANG</span>
+                <!-- <span>Django</span>
+                <span>Javascript</span> -->
+            </div>
+            </div>
+            <img src="images/DSA.png" alt="">
+
+        </div>
+        </div>
+    </section>
+
+
+        <!-- Contact -->
+        <section id="links-section" class="section">
+            <h2>Contact</h2>
+            <div>
+                <a href="mailto:parthgarg2013@gmail.com@gmail.com" description="Mail"><i class="fas fa-envelope" onmouseover='displayDescriptionOnLinks("fa-envelope");'></i>
+                    mail</a>
+                <a href="https://www.linkedin.com/in/whoparthgarg/" description="Linkedin"><i class="fab fa-linkedin-in"> </i>
+                    linkedin</a>
+                <a href="https://github.com/whoparthgarg" description="Github"><i class="fab fa-github"></i>
+                    github</a>
+                <a href="https://twitter.com/whoparthgarg" description="Twitter"><i class="fab fa-twitter"></i>
+                    twitter</a>
+                <a href="https://instagram.com/whoparthgarg" description="Instagram"><i class="fab fa-instagram"></i>
+                    instagram</a>
+            </div>
+        </section>
+    </main>
+    <script src="js/index.js"></script>
 </body>
 </html>
