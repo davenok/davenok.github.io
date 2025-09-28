@@ -134,6 +134,7 @@ function switchDarkLightMode() {
         // Switch to light mode
         icon.setAttribute("src","images/moon.svg");
         document.documentElement.style.setProperty('--background-color', '#fafafa');
+        // Use #333 for text color on light background for better readability and less harshness than pure black (#000)
         document.documentElement.style.setProperty('--text-color', '#333');
         document.documentElement.style.setProperty('--text-hover-color',"#000");
         document.documentElement.style.setProperty('--text-title-color',"#111");
