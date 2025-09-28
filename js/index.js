@@ -102,6 +102,7 @@ function switchDarkLightMode() {
     let darkTextTitleColor = "#eee";
     let darkTextHoverColor = "#ddd";
     let darkAccentColor = "#222";
+    
     icon.onmouseover = () => {
         console.log("James");
         icon.setAttribute("src","images/moon-full.svg");
@@ -111,12 +112,17 @@ function switchDarkLightMode() {
     }
     let color = getComputedStyle(document.documentElement).getPropertyValue("--background-color");
     if(color == "#fafafa"){
+        // Switch to dark mode
         icon.setAttribute("src","images/sun.svg");
         document.documentElement.style.setProperty('--background-color',darkColor);
         document.documentElement.style.setProperty('--text-color',darkTextColor);
         document.documentElement.style.setProperty('--text-title-color',darkTextTitleColor);
         document.documentElement.style.setProperty('--text-hover-color',darkTextHoverColor);
         document.documentElement.style.setProperty('--light-accent-color',darkAccentColor);
+        
+        // Add dark theme class to body for better CSS targeting
+        document.body.classList.add('dark-theme');
+        
         icon.onmouseover = () => {
                 icon.setAttribute("src","images/sun-filled.svg");
         }
@@ -125,12 +131,16 @@ function switchDarkLightMode() {
         }
 
     } else {
+        // Switch to light mode
         icon.setAttribute("src","images/moon.svg");
         document.documentElement.style.setProperty('--background-color', '#fafafa');
-        document.documentElement.style.setProperty('--text-color', '#111');
+        document.documentElement.style.setProperty('--text-color', '#333');
         document.documentElement.style.setProperty('--text-hover-color',"#000");
         document.documentElement.style.setProperty('--text-title-color',"#111");
         document.documentElement.style.setProperty('--light-accent-color',"#ccc");
+
+        // Remove dark theme class
+        document.body.classList.remove('dark-theme');
 
         icon.onmouseover = () => {
             console.log("James");

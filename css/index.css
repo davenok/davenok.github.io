@@ -221,6 +221,16 @@ section {
   top: 1.9vw;
   transition: All 1s;
 }
+
+/* Spire image in header */
+#switch-ldm-logo img {
+  transition: filter 0.3s ease;
+}
+
+/* When in dark theme, adjust the spire image */
+body.dark-theme #switch-ldm-logo img {
+  filter: invert(1) brightness(0.8);
+}
 #about-me-section {
   width: 75%;
   line-height: 1.7em;
