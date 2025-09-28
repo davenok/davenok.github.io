@@ -129,24 +129,24 @@ section {
 .watermark:first-child {
   position: fixed;
   margin: 0em auto;
-  font-size: 10rem;
+  font-size: 6rem;
   font-weight: bolder;
   font-family: nunito;
   opacity: 0.03;
   top: 0;
-  left: -2em;
+  left: 0em;
   z-index: -1000;
 }
 .watermark:nth-child(2) {
   position: fixed;
   margin: 0em auto;
-  font-size: 27rem;
+  font-size: 21rem;
   font-weight: bolder;
   font-family: nunito;
   opacity: 0.03;
   overflow: hidden;
   bottom: 0em;
-  right: -1em;
+  leftright: 20em;
   z-index: -1000;
 }
 .watermark:nth-child(3) {
