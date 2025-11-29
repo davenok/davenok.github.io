@@ -40,6 +40,16 @@
         drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
     }
 
+    // Footer flyout toggle for small screens
+    const footerToggle = document.getElementById('footer-toggle');
+    const footerFlyout = document.getElementById('footer-flyout');
+    if (footerToggle && footerFlyout) {
+        footerToggle.addEventListener('click', () => {
+            const isHidden = getComputedStyle(footerFlyout).display === 'none';
+            footerFlyout.style.display = isHidden ? 'block' : 'none';
+        });
+    }
+
     // Smooth anchor scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', (e) => {
