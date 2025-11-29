@@ -1,163 +1,54 @@
-// display sections on clicking on the link
-function displaySection(link,section) {
-    // link and the section to show
-    let lnk = document.querySelector(`#${link}`);
-    let sec = document.querySelector(`#${section}`);
+// Modern theme toggle with persistence
+(function() {
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    const menuBtn = document.getElementById('menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
 
-    // when you click on one of the links
-    lnk.onclick = (event) => {
-
-        // mobile js
-        const mq = window.matchMedia("(max-width: 500px)");
-        if(mq.matches) {
-            // show the go-back button when a link is clicked in responsive mode .
-            let goBackButton = document.querySelector("#go-back-button");
-            goBackButton.style.display = "block";
-
-            // when the go-back button is clicked , it disappears with the main and the menu should reapear .
-            goBackButton.addEventListener("click",() => {
-                // hide the mainSection
-                sec.style.display = "none";
-                let menu = document.querySelector("#menu");
-                menu.style.display = "flex";
-                goBackButton.style.display = "none";
-                lnk.classList.remove("active");
-
-            });
-            lnk.parentElement.style.display = "none";
-            if(section == "skills-section") {
-                let div = document.querySelector(`#${section} > article`);
-                div.style.display = "flex";
-                div.style.flexDirection = "column";
-                let subElement = document.querySelectorAll(`#${section} li`);
-                for (se of subElement){
-                    se.style.fontFamily = "roboto mono";
-                }
-
-            } else if (section == "projects-section") {
-                let s = document.querySelector("#projects-wrapper");
-
-                s.style.display = "flex";
-                s.style.flexDirection = "column";
-
-            } else if (section == "links-section") {
-                let linkWrapper = document.querySelector(`#${section} div`);
-                linkWrapper.style.display = "flex";
-                linkWrapper.style.flexDirection = "column";
-
-            }
-            sec.classList.remove("section");
-            sec.style.display = "block";
-            sec.style.animationName = "section-mobile";
-            sec.style.animationDuration = "1.2s";
-        } else {
-
-            // remove the section from sight
-            for(elem of sec.parentElement.children){
-                elem.style.display = "none";
-            }
-            // remove the about-me-intro
-            let aboutMeIntroSection = document.querySelector("#about-me-intro-section");
-            aboutMeIntroSection.style.display = "None";
-
-            sec.classList.remove("section");
-            sec.style.display = "block";
-            sec.style.animationName = "section";
-            sec.style.animationDuration = "0.6s";
-            sec.style.animationFillMode = "forwards";
-
-
-            let menu = document.querySelector("#menu");
-            menu.style.marginTop = "0px";
-            menu.style.display = "flex";
-            menu.style.position = "fixed";
-            menu.style.top = "1vw";
-            menu.style.transition = "All 1s";
-            menu.style.marginTop="0px";
-            menu.style.right= "15vw";
-
-            event.preventDefault() ;
-            lnk.classList.add("active");
-        }
-
-        let jiran = lnk.parentElement.children;
-        for(j of jiran){
-            j.classList.remove("active");
-        }
-
-            event.preventDefault() ;
-            lnk.classList.add("active");
-
-    };
-}
-
-// dark and light mode
-document.documentElement.style.setProperty('--background-color', '#fafafa');
-function switchDarkLightMode() {
-    let icon = document.querySelector("#switch-container img");
-
-    icon.onclick = () => {
-    let darkColor = "#111216";
-    let darkTextColor = "#999";
-    let darkTextTitleColor = "#eee";
-    let darkTextHoverColor = "#ddd";
-    let darkAccentColor = "#222";
-    
-    icon.onmouseover = () => {
-        console.log("James");
-        icon.setAttribute("src","images/moon-full.svg");
-    }
-    icon.onmouseout = () => {
-        icon.setAttribute("src","images/moon.svg");
-    }
-    let color = getComputedStyle(document.documentElement).getPropertyValue("--background-color");
-    if(color == "#fafafa"){
-        // Switch to dark mode
-        icon.setAttribute("src","images/sun.svg");
-        document.documentElement.style.setProperty('--background-color',darkColor);
-        document.documentElement.style.setProperty('--text-color',darkTextColor);
-        document.documentElement.style.setProperty('--text-title-color',darkTextTitleColor);
-        document.documentElement.style.setProperty('--text-hover-color',darkTextHoverColor);
-        document.documentElement.style.setProperty('--light-accent-color',darkAccentColor);
-        
-        // Add dark theme class to body for better CSS targeting
-        document.body.classList.add('dark-theme');
-        
-        icon.onmouseover = () => {
-                icon.setAttribute("src","images/sun-filled.svg");
-        }
-        icon.onmouseout = () => {
-                icon.setAttribute("src","images/sun.svg");
-        }
-
+    // Initialize: default to dark unless user preference saved
+    const saved = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (saved === 'light' || (!saved && prefersLight)) {
+        body.classList.add('theme-light');
+        setIcon('light');
     } else {
-        // Switch to light mode
-        icon.setAttribute("src","images/moon.svg");
-        document.documentElement.style.setProperty('--background-color', '#fafafa');
-        // Use #333 for text color on light background for better readability and less harshness than pure black (#000)
-        document.documentElement.style.setProperty('--text-color', '#333');
-        document.documentElement.style.setProperty('--text-hover-color',"#000");
-        document.documentElement.style.setProperty('--text-title-color',"#111");
-        document.documentElement.style.setProperty('--light-accent-color',"#ccc");
-
-        // Remove dark theme class
-        document.body.classList.remove('dark-theme');
-
-        icon.onmouseover = () => {
-            console.log("James");
-            icon.setAttribute("src","images/moon-full.svg");
-        }
-        icon.onmouseout = () => {
-            icon.setAttribute("src","images/moon.svg");
-        }
+        body.classList.remove('theme-light');
+        setIcon('dark');
     }
+
+    function setIcon(mode) {
+        if (!toggleBtn) return;
+        toggleBtn.innerHTML = mode === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
-}
 
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const isLight = body.classList.toggle('theme-light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            setIcon(isLight ? 'light' : 'dark');
+            // Body transitions are handled in CSS; ensure reflow for smoother animation
+            void body.offsetWidth;
+        });
+    }
 
+    // Mobile drawer toggle
+    if (menuBtn && drawer) {
+        menuBtn.addEventListener('click', () => {
+            drawer.classList.toggle('open');
+        });
+        // Close on link click
+        drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
+    }
 
-switchDarkLightMode();
-displaySection("about-me","about-me-section");
-displaySection("skills","skills-section");
-displaySection("projects","projects-section");
-displaySection("links","links-section");
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+            const id = a.getAttribute('href').slice(1);
+            const target = document.getElementById(id);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+})();

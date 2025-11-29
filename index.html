@@ -6,188 +6,174 @@
     <meta name="language" content="en">
     <meta http-equiv="content-language" content="en-US">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ad9cb0368b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="./images/favicon.ico">
-    <title>David Burklin - Dave N Ok</title>
+    <title>David Burklin — Dave N Ok</title>
+    <meta name="description" content="Software Developer & Network Engineer. Python/Django, Infrastructure Design, Database Administration & Technology Consulting.">
 </head>
 
 <body>
-    <div>
-        <div class="watermark">DaveNOk</div>
-        <div class="watermark">DaveNOk</div>
-        <div class="watermark">DaveNOk</div>
-
-        <div id="header-name-ldm">
-            <h1 id="name">David Burklin</h1>
-            <span id="switch-ldm-logo">
-                <div id="switch-container">
-                    <img src="images/spire.png" alt="Spire logo - David Burklin">
-                </div>
-            </span>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#home" aria-label="Home">
+                <img id="brand-mark" src="images/spire.png" alt="Dave N Ok mark" />
+                <span>David Burklin</span>
+            </a>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+            <button id="theme-toggle" class="icon-button" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="menu-toggle" class="icon-button" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            </div>
         </div>
-
-        <p id="slogan">Software Developer & Network Engineer<br />
-            Amateur Radio Enthusiast<br />
-            Technology Innovation Specialist
-        </p>
-
-        <div id="go-back-button"> <i class="fas fa-chevron-left"></i> Menu</div>
-
-        <section id="about-me-intro-section" class="section">
-            <p>
-              I am a Python/Django Developer with extensive experience in backend development.
-              As a Senior Network Engineer, I specialize in infrastructure design and implementation.
-              My role as a Database Administrator & Technology Consultant involves helping organizations
-              optimize their data management and technology stack.
-            </p>
-            <!-- TODO: hide email from bots -->
-            <a href="mailto:davidburklin@gmail.com"> Get in touch</a>
-        </section>
-        <!-- menu -->
-        <header id="menu">
-            <p id="about-me"> <a href="">About</a> </p>
-            <p id="skills"> <a href="">Skills</a> </p>
-            <p id="projects"> <a href="">Projects</a> </p>
-            <p id="links"> <a href="">Contact</a> </p>
-        </header>
+    </header>
+    <div id="mobile-drawer" class="mobile-drawer">
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </div>
 
-    <main>
-        <!-- About -->
-        <section id="about-me-section" class="section">
-			<h2>About</h2>
-			<p>I am an experienced technology professional with decades of expertise in software development and network engineering.<br />
-                My journey spans from the early days of Novell Netware to modern cloud architectures and containerization.<br />
-                Currently specializing in Python development, Django frameworks, and network infrastructure design.
-      </p>
+    <!-- Floating actions left -->
+    <div class="floating-actions">
+        <a class="button ghost" href="mailto:davidburklin@gmail.com" aria-label="Hire me">Hire me</a>
+        <a class="button ghost" href="https://buymeacoffee.com/davidburklin" target="_blank" rel="noopener" aria-label="Buy me a Coffee">Buy me a Coffee</a>
+    </div>
 
-      <h2>Coding Profiles</h2>
-      <p>
-        <a href="https://replit.com/@davidburklin">ReplIt</a> &nbsp &nbsp
-      </p>
-      <br><br>
-			<a href="mailto:davidburklin@gmail.com">Hire me</a>
+    <main id="home">
+        <section class="hero container">
+            <h1 class="glow">Software Developer & Network Engineer</h1>
+            <p class="muted">Amateur Radio Enthusiast • Technology Innovation Specialist</p>
+            <div class="cta">
+                <a class="button" href="mailto:davidburklin@gmail.com">Get in touch</a>
+            </div>
         </section>
 
-        <!-- Skills -->
-        <section id="skills-section" class="section">
+        <section id="about" class="section container">
+            <div class="card">
+                <h2>About</h2>
+                <p>
+                    I am a Python/Django Developer with extensive experience in backend development. As a Senior Network Engineer, I specialize in infrastructure design and implementation. My role as a Database Administrator & Technology Consultant involves helping organizations optimize their data management and technology stack.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="section container">
             <h2>Skills</h2>
-            <article>
-                <section>
-                    <h4>Programming languages<img class="section-logos" src="./images/programming.svg"></h4>
-                    <ul>
-                        <li skill-description="Java"><object type="image/svg+xml" data="images/cpp.svg"></object>C++</li>
-                        <li skill-description="Java"><object type="image/svg+xml" data="images/python.svg"></object>Python</li>
-                        <li skill-description="Javascript"><object type="image/svg+xml" data="images/javascript.svg"></object>JavaScript</li>
+            <div class="cards">
+                <article class="card">
+                    <h4>Programming Languages</h4>
+                    <ul class="tags inline">
+                        <li><img src="images/cpp.svg" alt="C++" />C++</li>
+                        <li><img src="images/python.svg" alt="Python" />Python</li>
+                        <li><img src="images/javascript.svg" alt="JavaScript" />JavaScript</li>
                     </ul>
-                </section>
-
-                <section>
-                    <h4>Web Frontend<img class="section-logos" src="./images/frontend.svg"></h4>
-                    <ul>
-                        <li skill-description="HTML 5"><object type="image/svg+xml" data="images/html5.svg" class="svg-logos"></object>HTML</li>
-                        <li skill-description="CSS"><object type="image/svg+xml" data="images/css3.svg"></object>CSS</li>
-                        <li skill-description="Bootstrap"><object type="image/svg+xml" data="images/bootstrap.svg"></object>Bootstrap</li>
-                        <li skill-description="JQuery"><object type="image/svg+xml" data="images/jquery.svg"></object>Jquery</li>
+                </article>
+                <article class="card">
+                    <h4>Web Frontend</h4>
+                    <ul class="tags inline">
+                        <li><img src="images/html5.svg" alt="HTML" />HTML</li>
+                        <li><img src="images/css3.svg" alt="CSS" />CSS</li>
+                        <li><img src="images/bootstrap.svg" alt="Bootstrap" />Bootstrap</li>
+                        <li><img src="images/jquery.svg" alt="JQuery" />JQuery</li>
                     </ul>
-                </section>
-
-                <section>
-                    <h4>Web Backend <img class="section-logos" src="./images/backend.svg"></h4>
-                    <ul>
-                        <li skill-description="Node"><object type="image/svg+xml" data="images/node-dot-js.svg"></object>Node.js</li>
-                        <li skill-description="Django"><object type="image/svg+xml" data="images/python.svg"></object>Django</li>
+                </article>
+                <article class="card">
+                    <h4>Web Backend</h4>
+                    <ul class="tags inline">
+                        <li><img src="images/node-dot-js.svg" alt="Node.js" />Node.js</li>
+                        <li><img src="images/python.svg" alt="Django" />Django</li>
                     </ul>
-
-                </section>
-
-                <section>
-                    <h4>Other tools <img class="section-logos" src="./images/tools.svg"></h4>
-                    <ul>
-                        <li skill-description="Git"><object type="image/svg+xml" data="images/git.svg"></object>Git</li>
-                        <li skill-description="Github"><object type="image/svg+xml" data="images/github.svg"></object>Github</li>
-                        <li skill-description="Visual Studio Code"><object type="image/svg+xml" data="images/visualstudiocode.svg"></object>VScode</li>
-                        <li skill-description="Terminal"><object type="image/svg+xml" data="images/gnubash.svg"></object>Unix Shells (Bash/zsh)</li>
+                </article>
+                <article class="card">
+                    <h4>Other Tools</h4>
+                    <ul class="tags inline">
+                        <li><img src="images/git.svg" alt="Git" />Git</li>
+                        <li><img src="images/github.svg" alt="GitHub" />GitHub</li>
+                        <li><img src="images/visualstudiocode.svg" alt="VS Code" />VS Code</li>
+                        <li><img src="images/gnubash.svg" alt="Unix Shells" />Unix Shells (Bash/zsh)</li>
                     </ul>
-                </section>
-
-                <section>
-                    <h4>Human languages <img class="section-logos" src="./images/languages.svg"></h4>
-                    <ul>
+                </article>
+                <article class="card">
+                    <h4>Human Languages</h4>
+                    <ul class="tags inline">
                         <li>English</li>
-                        <!-- <li>French</li> -->
                         <li>Hindi</li>
                     </ul>
-                </section>
-            </article>
+                </article>
+            </div>
         </section>
 
-        <!-- Projects -->
-        <section id="projects-section" class="section">
-        <!-- will add tags to each project-->
-        <div id="projects-wrapper">
-        <div>
-            <div>
-            <h3>
-                <a href="https://" target="_blank">Project</a>
-                <br>
-                <em> - something that does things</em>
-            </h3>
-
-            <div class="tags">
-                <span>Python</span>
-                <span>Tweepy API</span>
+        <section id="projects" class="section container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3><a href="https://" target="_blank" rel="noopener">Project</a></h3>
+                        <p class="muted">something that does things</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Tweepy API</span>
+                        </div>
+                    </div>
+                    <img class="project-image" src="images/amanda.png" alt="Project preview" />
+                </article>
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3><a href="https://" target="_blank" rel="noopener">Data Structures and Algorithms</a></h3>
+                        <p class="muted">DSA Bootcamp</p>
+                        <div class="tags">
+                            <span>C++</span>
+                            <span>GitHub</span>
+                            <span>FAANG</span>
+                        </div>
+                    </div>
+                    <img class="project-image" src="images/DSA.png" alt="DSA project preview" />
+                </article>
             </div>
+        </section>
+
+        <section id="profiles" class="section container">
+            <h2>Coding Profiles</h2>
+            <div class="cards">
+                <article class="card">
+                    <h4>ReplIt</h4>
+                    <p class="muted">Coding playgrounds and demos</p>
+                    <p><a href="https://replit.com/@davidburklin" target="_blank" rel="noopener">Visit Profile</a></p>
+                </article>
+                <!-- Add more profiles here if applicable -->
             </div>
-            <img src="images/amanda.png" alt="">
+        </section>
 
-        </div>
-        <div>
-            <div>
-            <h3> <a href="https://" target="_blank">Data Structures and Algorithms</a>
-                <br>
-                <em>- DSA Bootcamp</em>
-            </h3>
-
-            <div class="tags">
-                <span>C++</span>
-                <span>Github</span>
-                <span>FAANG</span>
-                <!-- <span>Django</span>
-                <span>Javascript</span> -->
-            </div>
-            </div>
-            <img src="images/DSA.png" alt="">
-
-        </div>
-        </div>
-    </section>
-
-
-        <!-- Contact -->
-        <section id="links-section" class="section">
+        <section id="contact" class="section container">
             <h2>Contact</h2>
-            <div>
-                <a href="mailto:davidburklin@gmail.com" description="Mail"><i class="fas fa-envelope" onmouseover='displayDescriptionOnLinks("fa-envelope");'></i>
-                    mail</a>
-                <a href="https://www.linkedin.com/in/david-burklin-b312b45/" description="Linkedin"><i class="fab fa-linkedin-in"> </i>
-                    linkedin</a>
-                <a href="https://github.com/davenok" description="Github"><i class="fab fa-github"></i>
-                    github</a>
-                <a href="https://twitter.com/davidburklin" description="Twitter"><i class="fab fa-twitter"></i>
-                    twitter</a>
+            <div class="links">
+                <a href="mailto:davidburklin@gmail.com"><i class="fas fa-envelope"></i> Mail</a>
+                <a href="https://www.linkedin.com/in/david-burklin-b312b45/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="https://github.com/davenok" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://twitter.com/davidburklin" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> Twitter</a>
             </div>
         </section>
     </main>
-    
-    <footer style="text-align: center; padding: 20px; color: #666; font-size: 0.9em; margin-top: 40px;">
-        <p>&copy; 2025 David Burklin. Updated September 2025.</p>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 David Burklin. Updated September 2025.</p>
+        </div>
     </footer>
-    
+
     <script src="js/index.js"></script>
 </body>
 </html>
