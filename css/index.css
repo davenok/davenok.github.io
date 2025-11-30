@@ -154,6 +154,9 @@ a[target="_blank"]:hover, a[target="_blank"]:focus-visible {
 .site-footer p { color: var(--muted); margin: 0; text-align: left; font-size: 0.9rem; backdrop-filter: blur(6px); background: rgba(21,24,33,0.35); padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; }
 .theme-light .site-footer p { background: rgba(255,255,255,0.5); }
 .footer-toggle { display: none; }
+/* Footer badges */
+.footer-badges { display: flex; gap: 8px; margin-top: 6px; align-items: center; }
+.footer-badges img { opacity: 0.5; }
 
 @media (max-width: 700px) {
   .site-footer { left: 12px; bottom: 12px; }
