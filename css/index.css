@@ -70,6 +70,15 @@ a { color: var(--text); text-decoration: none; transition: color 160ms ease; }
 .hero h1 { font-size: 2.2rem; line-height: 1.2; margin: 0 0 8px; }
 .hero p { color: var(--muted); margin: 0 0 20px; }
 .hero-inline { margin: 6px 0 20px; }
+.hero-inline .sep { margin: 0 8px; color: var(--muted); }
+/* Animated hero roles */
+.hero-inline .role { opacity: 0; transform: translateX(40px); color: #be29ec; will-change: transform, color, opacity; }
+.hero-inline .role.enter { animation: roleIn 800ms ease forwards; }
+@keyframes roleIn {
+  0% { opacity: 0; transform: translateX(40px); color: #be29ec; }
+  60% { opacity: 1; transform: translateX(8px); color: #a649e8; }
+  100% { opacity: 1; transform: translateX(0); color: var(--muted); }
+}
 .button { display: inline-block; background: linear-gradient(90deg, var(--primary), var(--accent)); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 700; box-shadow: var(--glow); transition: box-shadow 180ms ease, color 160ms ease; }
 .button.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); transition: box-shadow 180ms ease, color 160ms ease, border-color 160ms ease; }
 .button:hover, .button:focus-visible {

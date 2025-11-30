@@ -61,4 +61,20 @@
             }
         });
     });
+
+    // Staggered hero role entrance
+    const roles = document.querySelectorAll('.hero-inline .role');
+    if (roles.length) {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        roles.forEach((el, idx) => {
+            if (prefersReducedMotion) {
+                // Respect reduced motion: no animation, set final state
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+                el.style.color = getComputedStyle(document.documentElement).getPropertyValue('--muted').trim() || '#9aa0aa';
+            } else {
+                setTimeout(() => { el.classList.add('enter'); }, 150 * idx);
+            }
+        });
+    }
 })();
