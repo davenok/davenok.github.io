@@ -37,7 +37,7 @@ body {
   transition: background 1.5s ease, color 1.5s ease;
 }
 
-a { color: var(--text); text-decoration: none; }
+a { color: var(--text); text-decoration: none; transition: color 160ms ease; }
 .muted { color: var(--muted); }
 
 .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
@@ -70,9 +70,18 @@ a { color: var(--text); text-decoration: none; }
 .hero h1 { font-size: 2.2rem; line-height: 1.2; margin: 0 0 8px; }
 .hero p { color: var(--muted); margin: 0 0 20px; }
 .hero-inline { margin: 6px 0 20px; }
-.button { display: inline-block; background: linear-gradient(90deg, var(--primary), var(--accent)); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 700; box-shadow: var(--glow); }
-.button.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
-.button.ghost:hover { border-color: var(--primary); color: var(--primary); }
+.button { display: inline-block; background: linear-gradient(90deg, var(--primary), var(--accent)); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 700; box-shadow: var(--glow); transition: box-shadow 180ms ease, color 160ms ease; }
+.button.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); transition: box-shadow 180ms ease, color 160ms ease, border-color 160ms ease; }
+.button:hover, .button:focus-visible {
+  box-shadow: 0 0 0 1px rgba(190,41,236,0.55), 0 0 14px 3px rgba(190,41,236,0.45), 0 8px 28px rgba(0,0,0,0.35);
+  outline: none;
+}
+.button.ghost:hover, .button.ghost:focus-visible {
+  color: #be29ec;
+  border-color: #be29ec;
+  box-shadow: 0 0 0 1px rgba(190,41,236,0.55), 0 0 14px 3px rgba(190,41,236,0.45), 0 8px 28px rgba(0,0,0,0.35);
+  outline: none;
+}
 
 /* Floating actions left */
 .floating-actions { position: fixed; top: 96px; left: 16px; display: flex; flex-direction: column; gap: 16px; z-index: 35; }
@@ -94,14 +103,27 @@ a { color: var(--text); text-decoration: none; }
 
 /* Cards & tags */
 .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: box-shadow 180ms ease, border-color 180ms ease; }
 .tags.inline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .tags.inline li { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border: 1px dashed var(--border); border-radius: 8px; }
 .tags.inline img { width: 18px; height: 18px; filter: var(--brand-filter-dark); }
 
 /* Projects */
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.project-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+.project-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: box-shadow 180ms ease, border-color 180ms ease; }
+
+/* Link hover: simple color change for internal/non-site links */
+a:hover, a:focus-visible { color: #be29ec; outline: none; }
+
+/* External site links (new tab) get glow */
+a[target="_blank"]:hover, a[target="_blank"]:focus-visible {
+  color: #be29ec;
+  box-shadow: 0 0 0 1px rgba(190,41,236,0.45), 0 0 10px 2px rgba(190,41,236,0.30);
+}
+
+/* External ghost buttons adapt border color (exclude social links) */
+/* Target-specific override no longer needed: all ghost buttons use purple hover */
+@media (prefers-reduced-motion: reduce) { a { transition: none; } }
 .project-content h3 { margin: 0 0 4px; }
 .project-content .tags { display: flex; gap: 8px; flex-wrap: wrap; }
 .project-content .tags span { font-size: 0.8rem; color: var(--muted); border: 1px dashed var(--border); padding: 2px 6px; border-radius: 6px; }
@@ -111,8 +133,11 @@ a { color: var(--text); text-decoration: none; }
 
 /* Contact */
 .links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.links a { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
-.links a:hover { border-color: var(--primary); color: var(--primary); }
+.links a { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.2); transition: color 160ms ease; }
+.links a:hover, .links a:focus-visible { color: #be29ec; }
+
+/* Disable external glow for social links specifically */
+.links a[target="_blank"]:hover, .links a[target="_blank"]:focus-visible { box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
 
 /* Footer */
 .site-footer { position: fixed; left: 16px; bottom: 12px; border-top: 0; z-index: 30; display: flex; align-items: flex-end; gap: 8px; }
